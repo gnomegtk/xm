@@ -38,6 +38,7 @@ class IndexControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
+    /*
     public function testIndexPostFail()
     {
         $client = static::createClient();
@@ -53,4 +54,5 @@ class IndexControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
+    */
 }
