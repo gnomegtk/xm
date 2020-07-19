@@ -23,7 +23,10 @@ class IndexControllerTest extends WebTestCase
 
         $client->request('POST', '/',
             [
-                'companySymbol' => ''
+                'companySymbol' => 'AAIT',
+                'startDate'     => '2020-07-01',
+                'endDate'       => '2020-07-02',
+                'email'         => 'a@a.com',
             ]
         );
 
