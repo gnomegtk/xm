@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ form(form) }}
+
+    {% if formSubmitted %}
+        {% if not results | length %}
+            <b>No items found</b>
+        {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Open</th>
+                        <th scope="col">High</th>
+                        <th scope="col">Low</th>
+                        <th scope="col">Close</th>
+                        <th scope="col">Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                        <tr>
+                            <th scope="col">{{ result.date|date("Y-m-d") }}</th>
+                            <th scope="col">{{ result.open }}</th>
+                            <th scope="col">{{ result.high }}</th>
+                            <th scope="col">{{ result.low }}</th>
+                            <th scope="col">{{ result.close }}</th>
+                            <th scope="col">{{ result.volume }}</th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.js-datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
+
+{% endblock %}
